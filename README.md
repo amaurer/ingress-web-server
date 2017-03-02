@@ -5,6 +5,8 @@ Docker files and config for my ingress web server at home. Built on top of https
 `docker build -t amaurer/ingress_web_server --no-cache -t amaurer/ingress_web_server:x.x .`
 
 ## Run like...
-`docker run -p 80:80 -p 443:443 -v /etc/ssl/certs/web/:/etc/ssl/certs/web/ -v /var/log/ingress_web_server/:/var/log/nginx/ amaurer/ingress_web_server`
-`docker-compose up`
+`docker run -d --restart=always -p 80:80 -p 443:443 -v /etc/ssl/certs/web/:/etc/ssl/certs/web/ -v /var/log/ingress_web_server/:/var/log/nginx/ --name ingress_web amaurer/ingress_web_server`
 
+OR
+
+`docker-compose up`
