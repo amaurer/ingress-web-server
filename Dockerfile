@@ -1,22 +1,17 @@
 FROM sdhibit/rpi-raspbian
 
 RUN apt-get update
-
-RUN apt-get install openssl -y
+RUN apt-get upgrade -y
+RUN apt-get update
+RUN apt-get clean
 
 RUN apt-get install nginx -y
 
-# A place for more apps
-RUN mkdir /usr/share/nginx/apps
+# Certs directory and remove default nginx.conf
+RUN mkdir /etc/ssl/ && mkdir /etc/ssl/certs && mkdir /etc/ssl/certs/web/ && rm /etc/nginx/nginx.conf
 
-# Certs
-RUN mkdir /etc/ssl/certs/web/
-
-# Communication folder for containers and host
-RUN mkdir /var/run/commbus/
-
-#nginx Config
-RUN rm /etc/nginx/nginx.conf
 COPY files/nginx.conf /etc/nginx/
 COPY files/http.conf /etc/nginx/conf.d/
 COPY files/https.conf /etc/nginx/conf.d/
+
+CMD nginx -g 'daemon off;'
