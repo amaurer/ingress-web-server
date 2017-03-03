@@ -1,7 +1,7 @@
 # Ingress Web Server
 Docker files and config for my ingress web server at home. Built on top of https://github.com/sdhibit/docker-rpi-raspbian and is for the ARMv7 processor - specifically, a Raspberry Pi3.
 
-## Build like
+## Build like (remove --no-cache if you don't want updated apt-get)
 `docker build -t amaurer/ingress_web_server --no-cache -t amaurer/ingress_web_server:x.x .`
 
 ## Run like...
