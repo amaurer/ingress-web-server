@@ -1,9 +1,6 @@
 FROM sdhibit/rpi-raspbian
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get update
-RUN apt-get clean
+RUN apt-get update && apt-get upgrade -y && apt-get clean
 
 RUN apt-get install nginx -y
 
