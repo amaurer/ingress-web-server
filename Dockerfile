@@ -9,10 +9,15 @@ RUN apt-get install nginx -y \
     rm -rf /var/lib/apt/lists/*
 
 # Certs directory and remove default nginx.conf
-RUN mkdir /etc/ssl/ && mkdir /etc/ssl/certs && mkdir /etc/ssl/certs/web/ && rm /etc/nginx/nginx.conf
+RUN mkdir /etc/ssl/ && \
+	mkdir /etc/ssl/certs && \
+	mkdir /etc/ssl/certs/web/ && \
+	mkdir /usr/share/nginx/html/fileserve && \
+	rm /etc/nginx/nginx.conf
 
 COPY files/nginx.conf /etc/nginx/
 COPY files/http.conf /etc/nginx/conf.d/
 COPY files/https.conf /etc/nginx/conf.d/
+COPY files/index.html /usr/share/nginx/html/
 
 CMD nginx -g 'daemon off;'

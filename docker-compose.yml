@@ -9,3 +9,4 @@ services:
     volumes:
       - /etc/ssl/certs/web/:/etc/ssl/certs/web/
       - /var/log/ingress_web_server/:/var/log/nginx/
+      - /var/run/ingress_web_server/fileserve/:/usr/share/nginx/html/fileserve/
