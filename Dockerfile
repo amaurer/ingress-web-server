@@ -18,7 +18,5 @@ RUN mkdir /etc/ssl/ && \
 COPY files/nginx.conf /etc/nginx/
 COPY files/http.conf /etc/nginx/conf.d/
 COPY files/https.conf /etc/nginx/conf.d/
-COPY files/index.html /usr/share/nginx/html/
-COPY files/pool.txt /usr/share/nginx/html/fileserve/
 
 CMD nginx -g 'daemon off;'
